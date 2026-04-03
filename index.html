@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Plutus Financial — Your Digital Asset Wallet</title>
-  <meta name="description" content="Plutus Financial provides a simple, secure way to buy, sell, and manage cryptocurrencies. Download the app and take control of your digital assets.">
+  <title>Plutus — Your Digital Asset Wallet</title>
+  <meta name="description" content="Plutus provides a simple, secure way to buy, sell, and manage cryptocurrencies. Download the app and take control of your digital assets.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
@@ -42,10 +42,24 @@
       -webkit-font-smoothing: antialiased;
     }
 
+
+    /* ─── DISCLAIMER BANNER ─── */
+    .disclaimer-banner {
+      background: #2C2C2C;
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 0.5rem 1rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.02em;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 101;
+    }
     /* ─── NAV ─── */
     nav {
       position: fixed;
-      top: 0;
+      top: 28px;
       width: 100%;
       z-index: 100;
       background: rgba(254, 252, 249, 0.92);
@@ -116,7 +130,7 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding: 8rem 2rem 4rem;
+      padding: 9rem 2rem 4rem;
       background: linear-gradient(160deg, var(--color-bg) 0%, #EDE8E1 50%, #E0DDD6 100%);
       position: relative;
       overflow: hidden;
@@ -709,19 +723,21 @@
 </head>
 <body>
 
+  <!-- DISCLAIMER BANNER -->
+  <div class="disclaimer-banner">Plutus App currently not accepting new users and is not Available in the United States or to US Persons.</div>
+
   <!-- NAV -->
   <nav>
     <div class="nav-inner">
       <a href="#" class="logo">
         <div class="logo-icon">P</div>
-        Plutus Financial
+        Plutus
       </a>
       <ul class="nav-links">
         <li><a href="#features">Features</a></li>
-        <li><a href="#app">Download</a></li>
         <li><a href="#support">Support</a></li>
         <li><a href="#faq">FAQ</a></li>
-        <li><a href="#app" class="nav-cta">Get the App</a></li>
+        <li><a href="#support" class="nav-cta">Get Support</a></li>
       </ul>
     </div>
   </nav>
@@ -730,22 +746,18 @@
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-text">
-        <h1>Your crypto.<br><span>Your control.</span></h1>
-        <p>Plutus Financial makes it simple to buy, sell, and manage digital assets — all from your phone. Trusted by millions worldwide.</p>
+        <h1>Crypto<br><span>made easy.</span></h1>
+        <p>Buy, sell, and manage digital assets — all from your phone. Simple, global, and trusted by millions.</p>
         <div class="hero-buttons">
-          <a href="https://apps.apple.com/us/app/abra-global-money-transfer/id966301394" class="btn btn-primary" target="_blank" rel="noopener">
-            <span>&#63743;</span> Download for iOS
-          </a>
-          <a href="https://play.google.com/store/apps/details?id=com.psl.crypto" class="btn btn-secondary" target="_blank" rel="noopener">
-            <span>▶</span> Download for Android
-          </a>
+          <a href="#features" class="btn btn-primary">Learn More</a>
+          <a href="#support" class="btn btn-secondary">Get Support</a>
         </div>
       </div>
       <div class="hero-visual">
         <div class="phone-mockup">
           <div class="phone-screen">
             <div class="phone-header">
-              <h3>Plutus Financial</h3>
+              <h3>Plutus</h3>
               <p>Welcome back</p>
             </div>
             <div class="phone-balance">
@@ -822,9 +834,9 @@
     </div>
     <div class="features-grid">
       <div class="feature-card">
-        <div class="feature-icon green">🔐</div>
-        <h3>Bank-Grade Security</h3>
-        <p>Your assets are protected with industry-leading encryption, multi-factor authentication, and cold storage infrastructure.</p>
+        <div class="feature-icon green">⚡</div>
+        <h3>Get Started in Minutes</h3>
+        <p>Create an account, verify your identity, and start buying crypto in just a few steps. No complicated setup required.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon amber">💱</div>
@@ -854,56 +866,6 @@
     </div>
   </section>
 
-  <!-- APP DOWNLOAD -->
-  <section class="app-section" id="app">
-    <div class="app-inner">
-      <div class="app-content">
-        <h2>Download the Plutus Financial App</h2>
-        <p>Join millions of users who trust Plutus Financial to manage their digital assets. Available on iOS and Android.</p>
-        <div class="app-stats">
-          <div class="stat">
-            <div class="number">2M+</div>
-            <div class="label">Users Worldwide</div>
-          </div>
-          <div class="stat">
-            <div class="number">150+</div>
-            <div class="label">Countries</div>
-          </div>
-          <div class="stat">
-            <div class="number">75+</div>
-            <div class="label">Cryptocurrencies</div>
-          </div>
-        </div>
-        <div class="store-badges">
-          <a href="https://apps.apple.com/us/app/abra-global-money-transfer/id966301394" class="store-badge" target="_blank" rel="noopener">
-            <span class="store-icon">&#63743;</span>
-            <div class="store-text">
-              <small>Download on the</small>
-              <span>App Store</span>
-            </div>
-          </a>
-          <a href="https://play.google.com/store/apps/details?id=com.psl.crypto" class="store-badge" target="_blank" rel="noopener">
-            <span class="store-icon">▶</span>
-            <div class="store-text">
-              <small>Get it on</small>
-              <span>Google Play</span>
-            </div>
-          </a>
-        </div>
-      </div>
-      <div class="app-visual">
-        <div class="app-screenshots">
-          <div class="screenshot">
-            App screenshot placeholder — swap with real asset
-          </div>
-          <div class="screenshot">
-            App screenshot placeholder — swap with real asset
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- SUPPORT -->
   <section class="support" id="support">
     <div class="support-inner">
@@ -913,7 +875,7 @@
         <div class="support-card">
           <h3>📧 Email Support</h3>
           <p>Get in touch with our team for account questions, technical issues, or general inquiries.</p>
-          <a href="mailto:support@plutusfinancial.com">support@plutusfinancial.com</a>
+          <a href="mailto:support@getplutus.com">support@getplutus.com</a>
         </div>
         <div class="support-card">
           <h3>📚 Help Center</h3>
@@ -923,12 +885,12 @@
         <div class="support-card">
           <h3>🐛 Report an Issue</h3>
           <p>Experiencing a bug or technical problem? Let us know so we can fix it quickly.</p>
-          <a href="mailto:support@plutusfinancial.com?subject=Bug Report">Report a Bug</a>
+          <a href="mailto:support@getplutus.com?subject=Bug Report">Report a Bug</a>
         </div>
         <div class="support-card">
           <h3>💬 Feedback</h3>
           <p>We value your input. Share ideas or suggestions to help us improve the app.</p>
-          <a href="mailto:support@plutusfinancial.com?subject=Feedback">Send Feedback</a>
+          <a href="mailto:support@getplutus.com?subject=Feedback">Send Feedback</a>
         </div>
       </div>
     </div>
@@ -941,41 +903,51 @@
 
       <div class="faq-item">
         <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-          What is Plutus Financial?
+          What is Plutus?
           <span class="faq-chevron">▼</span>
         </div>
         <div class="faq-answer">
-          <p>Plutus Financial is a digital asset wallet and trading platform that makes it easy to buy, sell, and manage cryptocurrencies. Our app is available on iOS and Android and is used by millions of people in over 150 countries.</p>
+          <p>Established in 2014, Plutus is on a mission to create a simple and honest platform that enables millions of cryptocurrency holders to maximize the potential of their assets. Plutus enables individuals to safely and securely buy, trade, and manage cryptocurrencies — all in one place. Our vision is an open, global financial system that is easily accessible to everyone.</p>
         </div>
       </div>
 
       <div class="faq-item">
         <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-          How do I download the app?
+          Is the Plutus app currently accepting new users?
           <span class="faq-chevron">▼</span>
         </div>
         <div class="faq-answer">
-          <p>You can download the Plutus Financial app from the Apple App Store (iOS) or Google Play Store (Android). Just search for "Plutus Financial" or use the download links on this page.</p>
+          <p>The Plutus app is currently not accepting new users and is not available in the United States or to US persons. Existing users in supported regions can continue to access their accounts through the app.</p>
         </div>
       </div>
 
       <div class="faq-item">
         <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-          Which cryptocurrencies are supported?
+          Which cryptocurrencies does Plutus support?
           <span class="faq-chevron">▼</span>
         </div>
         <div class="faq-answer">
-          <p>Plutus Financial supports 75+ cryptocurrencies and stablecoins, including Bitcoin (BTC), Ethereum (ETH), Solana (SOL), USD Coin (USDC), and many more. New assets are added regularly.</p>
+          <p>Over 75 cryptocurrencies are available to buy, sell, hold, or trade. You can exchange any supported currency to any other supported currency with no trading pair limitations, giving you the flexibility and freedom to manage your crypto your way.</p>
         </div>
       </div>
 
       <div class="faq-item">
         <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-          Is my money safe?
+          Where is Plutus available?
           <span class="faq-chevron">▼</span>
         </div>
         <div class="faq-answer">
-          <p>Security is our top priority. We use enterprise-grade encryption, multi-factor authentication, and cold storage to protect your assets. We follow industry best practices for digital asset custody.</p>
+          <p>Plutus is available in select countries outside the United States. The app is not available to US persons. Some features may vary by region due to local regulations. Please refer to our terms of service for specific availability in your country.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          What is my Recovery Phrase?
+          <span class="faq-chevron">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Your recovery phrase is a set of words that allows you to restore access to your wallet if you lose your device or forget your PIN. It is extremely important that you write it down and store it in a safe place. Plutus Support will NEVER ask for your recovery phrase, 2FA code, or phone/email verification code.</p>
         </div>
       </div>
 
@@ -985,17 +957,7 @@
           <span class="faq-chevron">▼</span>
         </div>
         <div class="faq-answer">
-          <p>You can reach our support team at <a href="mailto:support@plutusfinancial.com">support@plutusfinancial.com</a>. We aim to respond to all inquiries within 24 hours.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-          What countries is Plutus Financial available in?
-          <span class="faq-chevron">▼</span>
-        </div>
-        <div class="faq-answer">
-          <p>Plutus Financial is available in over 150 countries worldwide. Some features may vary by region due to local regulations. Please refer to our terms of service for specific availability in your country.</p>
+          <p>You can reach our support team at <a href="mailto:support@getplutus.com">support@getplutus.com</a>. Support hours are 6am–6pm PT (USA), Monday–Friday, excluding holidays. For additional FAQs, visit our <a href="https://plutustechnologies.zendesk.com/hc/en-us" target="_blank">help center</a>.</p>
         </div>
       </div>
 
@@ -1008,7 +970,7 @@
       <div class="footer-brand">
         <a href="#" class="logo">
           <div class="logo-icon">P</div>
-          Plutus Financial
+          Plutus
         </a>
         <p>Simple, secure digital asset management for everyone. Trusted by millions worldwide.</p>
       </div>
@@ -1016,7 +978,6 @@
         <h4>Product</h4>
         <ul>
           <li><a href="#features">Features</a></li>
-          <li><a href="#app">Download App</a></li>
           <li><a href="#support">Support</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
@@ -1024,7 +985,7 @@
       <div class="footer-col">
         <h4>Legal</h4>
         <ul>
-          <li><a href="#">Terms of Service</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
           <li><a href="#">Privacy Policy</a></li>
           <li><a href="#">Cookie Policy</a></li>
         </ul>
@@ -1032,13 +993,12 @@
       <div class="footer-col">
         <h4>Contact</h4>
         <ul>
-          <li><a href="mailto:support@plutusfinancial.com">support@plutusfinancial.com</a></li>
+          <li><a href="mailto:support@getplutus.com">support@getplutus.com</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; 2026 Plutus Financial, Inc. All rights reserved.</span>
-      <span>Plutus Financial is not affiliated with Abra Capital Management.</span>
+      <span>&copy; 2026 Plutus Technology Philippines Corp. All rights reserved. Plutus and Plutus Technologies is a trade name of Plutus Technology Philippines Corp. Not affiliated with Abra Capital Management.</span>
     </div>
   </footer>
 

@@ -7,7 +7,7 @@ redirects = []
 [functions."*"]
 
 [build]
-publish = "/Users/williambarhydt/.openclaw/workspace"
+publish = "/Users/williambarhydt/.openclaw/workspace/plutus-landing"
 publishOrigin = "default"
 
 [build.environment]

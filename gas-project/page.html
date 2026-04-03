@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plutus Financial — Your Digital Asset Wallet</title>
+  <meta name="description" content="Plutus Financial provides a simple, secure way to buy, sell, and manage cryptocurrencies. Download the app and take control of your digital assets.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary: #2D6A4F;
+      --color-primary-light: #40916C;
+      --color-primary-dark: #1B4332;
+      --color-accent: #D4A373;
+      --color-accent-light: #E9C89B;
+      --color-bg: #FEFCF9;
+      --color-bg-alt: #F5F0EB;
+      --color-text: #2C2C2C;
+      --color-text-light: #6B6B6B;
+      --color-white: #FFFFFF;
+      --font-heading: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--color-text);
+      background-color: var(--color-bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(254, 252, 249, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      padding: 0 2rem;
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .logo {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--color-primary-dark);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--color-primary);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--color-text-light);
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: var(--color-primary);
+    }
+    .nav-cta {
+      background: var(--color-primary);
+      color: var(--color-white) !important;
+      padding: 0.6rem 1.4rem;
+      border-radius: 8px;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover {
+      background: var(--color-primary-light) !important;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 8rem 2rem 4rem;
+      background: linear-gradient(160deg, var(--color-bg) 0%, #EDE8E1 50%, #E0DDD6 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(45,106,79,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-text h1 {
+      font-family: var(--font-heading);
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--color-primary-dark);
+      margin-bottom: 1.5rem;
+    }
+    .hero-text h1 span {
+      color: var(--color-primary-light);
+    }
+    .hero-text p {
+      font-size: 1.2rem;
+      color: var(--color-text-light);
+      margin-bottom: 2rem;
+      max-width: 480px;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.8rem;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--color-primary);
+      color: var(--color-white);
+    }
+    .btn-primary:hover {
+      background: var(--color-primary-light);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(45,106,79,0.3);
+    }
+    .btn-secondary {
+      background: var(--color-white);
+      color: var(--color-primary-dark);
+      border: 2px solid rgba(45,106,79,0.2);
+    }
+    .btn-secondary:hover {
+      border-color: var(--color-primary);
+      transform: translateY(-1px);
+    }
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .phone-mockup {
+      width: 320px;
+      height: 640px;
+      background: linear-gradient(145deg, #1B4332 0%, #2D6A4F 50%, #40916C 100%);
+      border-radius: 40px;
+      padding: 12px;
+      box-shadow: 0 40px 80px rgba(27,67,50,0.25), 0 0 0 1px rgba(255,255,255,0.1) inset;
+      position: relative;
+    }
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      background: var(--color-white);
+      border-radius: 30px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .phone-header {
+      background: var(--color-primary-dark);
+      color: white;
+      padding: 3rem 1.5rem 1.5rem;
+      text-align: center;
+    }
+    .phone-header h3 {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+    .phone-header p {
+      font-size: 0.75rem;
+      opacity: 0.7;
+    }
+    .phone-balance {
+      padding: 1.5rem;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+    }
+    .phone-balance .label {
+      font-size: 0.7rem;
+      color: var(--color-text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .phone-balance .amount {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+    }
+    .phone-assets {
+      padding: 1rem 1.5rem;
+      flex: 1;
+    }
+    .phone-assets .asset-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-text-light);
+      margin-bottom: 0.75rem;
+    }
+    .phone-asset {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid #f5f5f5;
+    }
+    .phone-asset:last-child { border: none; }
+    .asset-info {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .asset-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: white;
+    }
+    .asset-icon.btc { background: #F7931A; }
+    .asset-icon.eth { background: #627EEA; }
+    .asset-icon.sol { background: #9945FF; }
+    .asset-icon.usdc { background: #2775CA; }
+    .asset-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .asset-ticker {
+      font-size: 0.7rem;
+      color: var(--color-text-light);
+    }
+    .asset-value {
+      text-align: right;
+    }
+    .asset-value .price {
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .asset-value .change {
+      font-size: 0.7rem;
+      color: #40916C;
+    }
+
+    /* ─── FEATURES ─── */
+    .features {
+      padding: 6rem 2rem;
+      background: var(--color-bg);
+    }
+    .section-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 4rem;
+    }
+    .section-header .tag {
+      display: inline-block;
+      background: rgba(45,106,79,0.1);
+      color: var(--color-primary);
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .section-header h2 {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+      margin-bottom: 1rem;
+    }
+    .section-header p {
+      color: var(--color-text-light);
+      font-size: 1.1rem;
+    }
+    .features-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .feature-card {
+      background: var(--color-white);
+      border-radius: 16px;
+      padding: 2rem;
+      border: 1px solid rgba(0,0,0,0.06);
+      transition: all 0.3s;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    }
+    .feature-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .feature-icon.green { background: rgba(45,106,79,0.1); }
+    .feature-icon.amber { background: rgba(212,163,115,0.2); }
+    .feature-icon.blue { background: rgba(59,130,246,0.1); }
+    .feature-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: var(--color-primary-dark);
+    }
+    .feature-card p {
+      color: var(--color-text-light);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* ─── APP SECTION ─── */
+    .app-section {
+      padding: 6rem 2rem;
+      background: var(--color-bg-alt);
+    }
+    .app-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .app-content h2 {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+      margin-bottom: 1.5rem;
+    }
+    .app-content p {
+      color: var(--color-text-light);
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+    .app-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .stat {
+      text-align: center;
+    }
+    .stat .number {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--color-primary);
+    }
+    .stat .label {
+      font-size: 0.8rem;
+      color: var(--color-text-light);
+    }
+    .store-badges {
+      display: flex;
+      gap: 1rem;
+    }
+    .store-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.75rem 1.5rem;
+      background: var(--color-primary-dark);
+      color: var(--color-white);
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .store-badge:hover {
+      background: var(--color-primary);
+      transform: translateY(-2px);
+    }
+    .store-badge .store-icon {
+      font-size: 1.4rem;
+    }
+    .store-badge .store-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .store-badge .store-text small {
+      font-size: 0.6rem;
+      opacity: 0.7;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .store-badge .store-text span {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+    .app-visual {
+      display: flex;
+      justify-content: center;
+    }
+    .app-screenshots {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .screenshot {
+      width: 200px;
+      height: 400px;
+      background: linear-gradient(145deg, #f8f8f8, #eee);
+      border-radius: 20px;
+      border: 1px solid rgba(0,0,0,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-light);
+      font-size: 0.8rem;
+      text-align: center;
+      padding: 1rem;
+    }
+    .screenshot:nth-child(2) {
+      margin-top: 2rem;
+    }
+
+    /* ─── SUPPORT ─── */
+    .support {
+      padding: 6rem 2rem;
+      background: var(--color-bg);
+    }
+    .support-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .support-inner h2 {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+      margin-bottom: 1rem;
+    }
+    .support-inner > p {
+      color: var(--color-text-light);
+      font-size: 1.1rem;
+      margin-bottom: 3rem;
+    }
+    .support-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      text-align: left;
+    }
+    .support-card {
+      background: var(--color-white);
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.2s;
+    }
+    .support-card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+    }
+    .support-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+      margin-bottom: 0.5rem;
+    }
+    .support-card p {
+      color: var(--color-text-light);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    .support-card a {
+      color: var(--color-primary);
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .support-card a:hover {
+      text-decoration: underline;
+    }
+
+    /* ─── FAQ ─── */
+    .faq {
+      padding: 6rem 2rem;
+      background: var(--color-bg-alt);
+    }
+    .faq-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .faq-inner h2 {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .faq-item {
+      background: var(--color-white);
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(0,0,0,0.06);
+      overflow: hidden;
+    }
+    .faq-question {
+      padding: 1.25rem 1.5rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--color-primary-dark);
+      user-select: none;
+    }
+    .faq-question:hover {
+      background: rgba(45,106,79,0.02);
+    }
+    .faq-chevron {
+      transition: transform 0.3s;
+      font-size: 0.8rem;
+      color: var(--color-text-light);
+    }
+    .faq-item.open .faq-chevron {
+      transform: rotate(180deg);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      padding: 0 1.5rem 1.25rem;
+    }
+    .faq-answer p {
+      color: var(--color-text-light);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--color-primary-dark);
+      color: rgba(255,255,255,0.8);
+      padding: 4rem 2rem 2rem;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+    }
+    .footer-brand .logo {
+      color: white;
+      margin-bottom: 1rem;
+    }
+    .footer-brand .logo-icon {
+      background: rgba(255,255,255,0.15);
+    }
+    .footer-brand p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      max-width: 280px;
+    }
+    .footer-col h4 {
+      color: var(--color-white);
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .footer-col ul {
+      list-style: none;
+    }
+    .footer-col li {
+      margin-bottom: 0.6rem;
+    }
+    .footer-col a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover {
+      color: var(--color-white);
+    }
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 3rem auto 0;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 968px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-text p { margin: 0 auto 2rem; }
+      .hero-buttons { justify-content: center; }
+      .hero-visual { order: -1; }
+      .phone-mockup { width: 260px; height: 520px; }
+      .hero-text h1 { font-size: 2.8rem; }
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .app-inner { grid-template-columns: 1fr; text-align: center; }
+      .app-visual { order: -1; }
+      .app-stats { justify-items: center; }
+      .store-badges { justify-content: center; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .hero-text h1 { font-size: 2.2rem; }
+      .section-header h2,
+      .app-content h2,
+      .support-inner h2,
+      .faq-inner h2 { font-size: 2rem; }
+      .features-grid { grid-template-columns: 1fr; }
+      .support-cards { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+      .app-screenshots { gap: 0.5rem; }
+      .screenshot { width: 160px; height: 320px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="logo">
+        <div class="logo-icon">P</div>
+        Plutus Financial
+      </a>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#app">Download</a></li>
+        <li><a href="#support">Support</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#app" class="nav-cta">Get the App</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1>Your crypto.<br><span>Your control.</span></h1>
+        <p>Plutus Financial makes it simple to buy, sell, and manage digital assets — all from your phone. Trusted by millions worldwide.</p>
+        <div class="hero-buttons">
+          <a href="https://apps.apple.com/us/app/abra-global-money-transfer/id966301394" class="btn btn-primary" target="_blank" rel="noopener">
+            <span>&#63743;</span> Download for iOS
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.psl.crypto" class="btn btn-secondary" target="_blank" rel="noopener">
+            <span>▶</span> Download for Android
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="phone-mockup">
+          <div class="phone-screen">
+            <div class="phone-header">
+              <h3>Plutus Financial</h3>
+              <p>Welcome back</p>
+            </div>
+            <div class="phone-balance">
+              <div class="label">Total Balance</div>
+              <div class="amount">$12,847.32</div>
+            </div>
+            <div class="phone-assets">
+              <div class="asset-label">Your Assets</div>
+              <div class="phone-asset">
+                <div class="asset-info">
+                  <div class="asset-icon btc">₿</div>
+                  <div>
+                    <div class="asset-name">Bitcoin</div>
+                    <div class="asset-ticker">BTC</div>
+                  </div>
+                </div>
+                <div class="asset-value">
+                  <div class="price">$8,241.50</div>
+                  <div class="change">+3.2%</div>
+                </div>
+              </div>
+              <div class="phone-asset">
+                <div class="asset-info">
+                  <div class="asset-icon eth">Ξ</div>
+                  <div>
+                    <div class="asset-name">Ethereum</div>
+                    <div class="asset-ticker">ETH</div>
+                  </div>
+                </div>
+                <div class="asset-value">
+                  <div class="price">$3,105.82</div>
+                  <div class="change">+1.8%</div>
+                </div>
+              </div>
+              <div class="phone-asset">
+                <div class="asset-info">
+                  <div class="asset-icon sol">◎</div>
+                  <div>
+                    <div class="asset-name">Solana</div>
+                    <div class="asset-ticker">SOL</div>
+                  </div>
+                </div>
+                <div class="asset-value">
+                  <div class="price">$1,000.00</div>
+                  <div class="change">+5.1%</div>
+                </div>
+              </div>
+              <div class="phone-asset">
+                <div class="asset-info">
+                  <div class="asset-icon usdc">$</div>
+                  <div>
+                    <div class="asset-name">USD Coin</div>
+                    <div class="asset-ticker">USDC</div>
+                  </div>
+                </div>
+                <div class="asset-value">
+                  <div class="price">$500.00</div>
+                  <div class="change">—</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="section-header">
+      <span class="tag">Why Plutus</span>
+      <h2>Simple. Secure. Global.</h2>
+      <p>Everything you need to navigate the world of digital assets, designed for real people — not just traders.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon green">🔐</div>
+        <h3>Bank-Grade Security</h3>
+        <p>Your assets are protected with industry-leading encryption, multi-factor authentication, and cold storage infrastructure.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon amber">💱</div>
+        <h3>Buy, Sell & Trade</h3>
+        <p>Access 75+ cryptocurrencies and stablecoins. Buy with credit card, debit card, Apple Pay, bank transfer, and more.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon blue">🌍</div>
+        <h3>Available Worldwide</h3>
+        <p>Used by millions of people across 150+ countries. Send and receive crypto or fiat instantly, anywhere in the world.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon amber">📊</div>
+        <h3>Portfolio Tracking</h3>
+        <p>Monitor your holdings in real time. See your complete balance, asset allocation, and performance at a glance.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon green">💸</div>
+        <h3>Low Fees</h3>
+        <p>Competitive trading fees and free wallet-to-wallet transfers. No hidden charges, no surprises.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon blue">📱</div>
+        <h3>Easy to Use</h3>
+        <p>Designed for everyone — from first-time crypto buyers to experienced investors. Get started in minutes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- APP DOWNLOAD -->
+  <section class="app-section" id="app">
+    <div class="app-inner">
+      <div class="app-content">
+        <h2>Download the Plutus Financial App</h2>
+        <p>Join millions of users who trust Plutus Financial to manage their digital assets. Available on iOS and Android.</p>
+        <div class="app-stats">
+          <div class="stat">
+            <div class="number">2M+</div>
+            <div class="label">Users Worldwide</div>
+          </div>
+          <div class="stat">
+            <div class="number">150+</div>
+            <div class="label">Countries</div>
+          </div>
+          <div class="stat">
+            <div class="number">75+</div>
+            <div class="label">Cryptocurrencies</div>
+          </div>
+        </div>
+        <div class="store-badges">
+          <a href="https://apps.apple.com/us/app/abra-global-money-transfer/id966301394" class="store-badge" target="_blank" rel="noopener">
+            <span class="store-icon">&#63743;</span>
+            <div class="store-text">
+              <small>Download on the</small>
+              <span>App Store</span>
+            </div>
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.psl.crypto" class="store-badge" target="_blank" rel="noopener">
+            <span class="store-icon">▶</span>
+            <div class="store-text">
+              <small>Get it on</small>
+              <span>Google Play</span>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="app-visual">
+        <div class="app-screenshots">
+          <div class="screenshot">
+            App screenshot placeholder — swap with real asset
+          </div>
+          <div class="screenshot">
+            App screenshot placeholder — swap with real asset
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUPPORT -->
+  <section class="support" id="support">
+    <div class="support-inner">
+      <h2>We're Here to Help</h2>
+      <p>Have a question or need assistance? Our support team is ready to help you.</p>
+      <div class="support-cards">
+        <div class="support-card">
+          <h3>📧 Email Support</h3>
+          <p>Get in touch with our team for account questions, technical issues, or general inquiries.</p>
+          <a href="mailto:support@plutusfinancial.com">support@plutusfinancial.com</a>
+        </div>
+        <div class="support-card">
+          <h3>📚 Help Center</h3>
+          <p>Browse our knowledge base for answers to frequently asked questions and how-to guides.</p>
+          <a href="#faq">View FAQ →</a>
+        </div>
+        <div class="support-card">
+          <h3>🐛 Report an Issue</h3>
+          <p>Experiencing a bug or technical problem? Let us know so we can fix it quickly.</p>
+          <a href="mailto:support@plutusfinancial.com?subject=Bug Report">Report a Bug</a>
+        </div>
+        <div class="support-card">
+          <h3>💬 Feedback</h3>
+          <p>We value your input. Share ideas or suggestions to help us improve the app.</p>
+          <a href="mailto:support@plutusfinancial.com?subject=Feedback">Send Feedback</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="faq-inner">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          What is Plutus Financial?
+          <span class="faq-chevron">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Plutus Financial is a digital asset wallet and trading platform that makes it easy to buy, sell, and manage cryptocurrencies. Our app is available on iOS and Android and is used by millions of people in over 150 countries.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          How do I download the app?
+          <span class="faq-chevron">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>You can download the Plutus Financial app from the Apple App Store (iOS) or Google Play Store (Android). Just search for "Plutus Financial" or use the download links on this page.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          Which cryptocurrencies are supported?
+          <span class="faq-chevron">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Plutus Financial supports 75+ cryptocurrencies and stablecoins, including Bitcoin (BTC), Ethereum (ETH), Solana (SOL), USD Coin (USDC), and many more. New assets are added regularly.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          Is my money safe?
+          <span class="faq-chevron">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Security is our top priority. We use enterprise-grade encryption, multi-factor authentication, and cold storage to protect your assets. We follow industry best practices for digital asset custody.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          How do I contact support?
+          <span class="faq-chevron">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>You can reach our support team at <a href="mailto:support@plutusfinancial.com">support@plutusfinancial.com</a>. We aim to respond to all inquiries within 24 hours.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          What countries is Plutus Financial available in?
+          <span class="faq-chevron">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Plutus Financial is available in over 150 countries worldwide. Some features may vary by region due to local regulations. Please refer to our terms of service for specific availability in your country.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <div class="logo-icon">P</div>
+          Plutus Financial
+        </a>
+        <p>Simple, secure digital asset management for everyone. Trusted by millions worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#app">Download App</a></li>
+          <li><a href="#support">Support</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:support@plutusfinancial.com">support@plutusfinancial.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Plutus Financial, Inc. All rights reserved.</span>
+      <span>Plutus Financial is not affiliated with Abra Capital Management.</span>
+    </div>
+  </footer>
+
+</body>
+</html>
